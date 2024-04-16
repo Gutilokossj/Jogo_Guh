@@ -1,0 +1,53 @@
+<head>
+<meta charset="UTF-8">
+<title>Jogo Advinhação</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+</head>
+<H1 id="titulo"> BEM VINDO AO JOGO DE ADVINHAÇÃO </H1>
+<h4> REGRAS: <br> ~ neste caso, é simples, você apenas precisa tentar ativinhar o número que estou pensado! quer tentar? </h4>
+
+<input type="number"/>
+<p id="mensagemErroQuantidade" style="color: red;"></p>
+<button id="botaoAdvinha">Tente advinhar meu pensamento</button>
+
+<script>
+
+    const numeroAleatorio = Math.floor(Math.random() *100);
+	console.log(numeroAleatorio);
+    var input = document.querySelector("input");
+        input.focus();
+		
+		function validarInput(inputElement, mensagemErroElement) {
+            const valor = inputElement.value.trim();
+
+            if (/[^0-9]/.test(valor)) {
+                // Se o valor não for um número inteiro, exibir uma mensagem de erro
+                mensagemErroElement.textContent = "Somente números inteiros são permitidos.";
+                inputElement.value = valor.replace(/[^0-9]/g, "");
+            } else {
+                // Limpar a mensagem de erro se o valor for um número inteiro
+                mensagemErroElement.textContent = "";
+            }
+        }
+
+    function verifica() {
+
+			if (input.value == numeroAleatorio){
+			alert("Você ACERTOU! muito bem, o número que pensei foi mesmo o " + numeroAleatorio);
+			} else {
+				if(input.value < numeroAleatorio) {
+				alert("Você ERROU! o número que eu pensei é maior do que este!");
+				input.value = "";
+				input.focus();
+			} else if(input.value > numeroAleatorio){
+				alert("Você ERROU! o número que eu pensei é menor do que este!");
+				input.value = "";
+				input.focus();
+				} 
+			}
+}
+    var button = document.querySelector("button");
+	button.onclick = verifica;
+
+</script>

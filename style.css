@@ -1,0 +1,17 @@
+#titulo{
+	color:#1B794F;
+	align-items: center;
+	margin-top: -300px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: linear-gradient(0deg, #163625, #000);
+	color: #FFF;
+    margin:0;
+   
+}
+
